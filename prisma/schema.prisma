@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model ecom_users {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  full_name    String   @db.VarChar(150)
+  email        String   @unique @db.VarChar(255)
+  phone_number String   @db.VarChar(20)
+  city         String   @db.VarChar(100)
+  pincode      String   @db.VarChar(6)
+  total_orders Int      @default(0)
+  created_at   DateTime @default(now()) @db.Timestamptz(6)
+
+  @@index([city], map: "idx_ecom_users_city")
+  @@index([created_at], map: "idx_ecom_users_created_at")
+  @@index([email], map: "idx_ecom_users_email")
+  @@index([total_orders], map: "idx_ecom_users_total_orders")
+}
