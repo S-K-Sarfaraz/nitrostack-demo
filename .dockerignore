@@ -1,0 +1,10 @@
+node_modules
+src/widgets/node_modules
+dist
+src/widgets/.next
+src/widgets/out
+.git
+.env
+.env.*
+*.log
+.nitrostudio
