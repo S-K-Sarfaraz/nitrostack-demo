@@ -6,7 +6,6 @@
   "description": "My awesome MCP server",
   "scripts": {
     "dev": "nitrostack-cli dev",
-    "prebuild": "prisma generate",
     "build": "prisma generate && nitrostack-cli build",
     "start": "npm run build && nitrostack-cli start",
     "start:prod": "nitrostack-cli start",
